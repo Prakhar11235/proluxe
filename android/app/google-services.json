@@ -1,0 +1,31 @@
+
+{
+  "project_info": {
+    "project_number": "671182472181",
+    "project_id": "proluxe-bd2d0",
+    "storage_bucket": "proluxe-bd2d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:671182472181:android:077bb6f8384e6c4a05d6bc",
+        "android_client_info": {
+          "package_name": "com.example.proluxe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfTSv3r-C5W8m51R4C3DtRB5500xAR_A8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+  
+}
