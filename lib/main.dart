@@ -9,5 +9,16 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then((value) => Get.put(AuthenticationRepository()));
-  runApp(const StartScreen());
+  runApp(const Wrapper());
+}
+
+class Wrapper extends StatelessWidget {
+  const Wrapper({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const GetMaterialApp(
+      home: StartScreen(),
+    );
+  }
 }
