@@ -32,13 +32,17 @@ class SelectAssessmentScreen extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(
+            height: 150,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 200,
+                  height: 400,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
@@ -61,11 +65,10 @@ class SelectAssessmentScreen extends StatelessWidget {
                           width: 400,
                         ),
                       ),
-
                       const SizedBox(
                         width: 16,
                       ),
-                      //Image.asset('assets/images/magnetic_personality.png'),
+                      Image.asset('assets/images/wellness_redifined.png'),
                       const SizedBox(
                         width: 16,
                       ),

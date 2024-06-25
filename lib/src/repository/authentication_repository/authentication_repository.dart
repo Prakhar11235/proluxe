@@ -22,9 +22,11 @@ class AuthenticationRepository extends GetxController {
   }
 
   _setInitialScreen(User? user) {
-    user == null
-        ? Get.offAll(() => const StartScreen())
-        : Get.offAll(() => const HomeScreen());
+    if (user == null) {
+      Get.offAll(() => const StartScreen());
+    } else {
+      Get.offAll(() => const HomeScreen());
+    }
   }
 
   //FUNC
@@ -33,9 +35,11 @@ class AuthenticationRepository extends GetxController {
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      /*firebaseUser.value != null
-          ? Get.offAll(() => const HomeScreen())
-          : Get.to(() => const StartScreen());*/
+      if (firebaseUser.value != null) {
+        Get.offAll(() => const HomeScreen());
+      } else {
+        Get.to(() => const StartScreen());
+      }
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       print('Firebase auth exception- ${ex.message}');

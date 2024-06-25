@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:proluxe/select_assessment_screen.dart';
+import 'package:get/get.dart';
+import 'package:proluxe/src/repository/authentication_repository/authentication_repository.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,7 +17,9 @@ class HomeScreen extends StatelessWidget {
               ),
               child: AppBar(
                 leading: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    AuthenticationRepository.instance.logout();
+                  },
                   icon: Image.asset('assets/images/leading.png'),
                 ),
                 title: const Text(
@@ -37,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => Get.to(() => const SelectAssessmentScreen()),
                       child: Image.asset(
                         'assets/images/know_yourself.png',
                         fit: BoxFit.fill,
