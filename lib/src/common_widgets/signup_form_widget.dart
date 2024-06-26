@@ -69,7 +69,9 @@ class SignupFormWidget extends StatelessWidget {
                   suffixIcon: IconButton(
                     onPressed: () => controller.hidePassword.value =
                         !controller.hidePassword.value,
-                    icon: const Icon(Icons.visibility_off_outlined),
+                    icon: Icon(controller.hidePassword.value
+                        ? Icons.visibility_off_outlined
+                        : Icons.visibility),
                   ),
                   labelStyle: const TextStyle(fontFamily: 'PlayFair'),
                   border: OutlineInputBorder(

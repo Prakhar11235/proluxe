@@ -1,11 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:proluxe/intro_screen.dart';
 import 'package:proluxe/start_screen.dart';
 import 'package:proluxe/home_screen.dart';
-
-//import 'package:proluxe/src/exceptions/login_with_email_and_password_failure.dart';
+import 'package:proluxe/src/exceptions/login_with_email_and_password_failure.dart';
 import 'package:proluxe/src/exceptions/signup_email_password_failure.dart';
-//import 'package:proluxe/start_screen.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -36,7 +35,7 @@ class AuthenticationRepository extends GetxController {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       if (firebaseUser.value != null) {
-        Get.offAll(() => const HomeScreen());
+        Get.offAll(() => const IntroScreen());
       } else {
         Get.to(() => const StartScreen());
       }
@@ -52,19 +51,25 @@ class AuthenticationRepository extends GetxController {
     //return null;
   }
 
-  /*Future<String?> loginWithEmailAndPassword(
+  Future<String?> loginWithEmailAndPassword(
       String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
+      if (_auth.currentUser != null) {
+        Get.offAll(() => const HomeScreen());
+      } else {
+        Get.to(() => const StartScreen());
+      }
     } on FirebaseAuthException catch (e) {
-      final ex = LogInWithEmailAndPasswordFailure.fromCode(e.code);
-      return ex.message;
+      final ex = LogInWithEmailAndPasswordFailure.code(e.code);
+      print('Firebase auth exception- ${ex.message}');
+      throw ex;
     } catch (_) {
       const ex = LogInWithEmailAndPasswordFailure();
       return ex.message;
     }
     return null;
-  }*/
+  }
 
   Future<void> logout() async => await _auth.signOut();
 }
