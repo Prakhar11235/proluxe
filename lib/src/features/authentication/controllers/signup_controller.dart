@@ -13,6 +13,7 @@ class SignUpController extends GetxController {
   final fullName = TextEditingController();
   final phoneNo = TextEditingController();
   final dob = TextEditingController();
+  final confpass = TextEditingController();
 
   final userRepo = Get.put(UserRepository());
 
