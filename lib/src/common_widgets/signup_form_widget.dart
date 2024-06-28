@@ -82,7 +82,6 @@ class SignupFormWidget extends StatelessWidget {
             const SizedBox(height: 16),
             Obx(
               () => TextFormField(
-                controller: controller.confpass,
                 obscureText: controller.hidePassword.value,
                 expands: false,
                 decoration: InputDecoration(
@@ -105,22 +104,18 @@ class SignupFormWidget extends StatelessWidget {
             ),
             OutlinedButton(
               onPressed: () {
-                if (controller.password == controller.confpass) {
-                  if (_formKey.currentState!.validate()) {
-                    SignUpController.instance.registerUser(
-                        controller.email.text.trim(),
-                        controller.password.text.trim());
-                  }
-                  final user = UserModel(
-                    email: controller.email.text.trim(),
-                    password: controller.password.text.trim(),
-                    fullName: controller.fullName.text.trim(),
-                    dob: controller.dob.text.trim(),
-                  );
-                  SignUpController.instance.createUser(user);
-                } else {
-                  print("Password mismatch");
+                if (_formKey.currentState!.validate()) {
+                  SignUpController.instance.registerUser(
+                      controller.email.text.trim(),
+                      controller.password.text.trim());
                 }
+                final user = UserModel(
+                  email: controller.email.text.trim(),
+                  password: controller.password.text.trim(),
+                  fullName: controller.fullName.text.trim(),
+                  dob: controller.dob.text.trim(),
+                );
+                SignUpController.instance.createUser(user);
               },
               style: OutlinedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 46, 73, 54)),

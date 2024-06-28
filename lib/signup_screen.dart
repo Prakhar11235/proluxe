@@ -16,57 +16,59 @@ class SignupScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
             child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Row(
-                    children: [
-                      Text(
-                        "Sign Up",
-                        style: TextStyle(
-                          fontFamily: 'PlayFair',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  const Text(
-                    "Discover a journey to a healthier and happier you with Proluxe",
-                    style: TextStyle(
-                      fontFamily: 'PlayFair',
-                      fontSize: 14,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 16),
-                  const SignupFormWidget(),
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Text(
-                        "Already have an account?",
-                        style: TextStyle(fontFamily: 'PlayFair'),
-                        textAlign: TextAlign.center,
-                      ),
-                      TextButton(
-                        onPressed: () => Get.to(() => const LoginScreen()),
-                        style:
-                            TextButton.styleFrom(foregroundColor: Colors.black),
-                        child: const Text(
-                          'Log in',
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Row(
+                      children: [
+                        Text(
+                          "Sign Up",
                           style: TextStyle(
-                              fontFamily: 'PlayFair',
-                              decoration: TextDecoration.underline),
+                            fontFamily: 'PlayFair',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                          ),
                         ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    const Text(
+                      "Discover a journey to a healthier and happier you with Proluxe",
+                      style: TextStyle(
+                        fontFamily: 'PlayFair',
+                        fontSize: 14,
                       ),
-                    ],
-                  ),
-                ],
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 16),
+                    const SignupFormWidget(),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text(
+                          "Already have an account?",
+                          style: TextStyle(fontFamily: 'PlayFair'),
+                          textAlign: TextAlign.center,
+                        ),
+                        TextButton(
+                          onPressed: () => Get.to(() => const LoginScreen()),
+                          style: TextButton.styleFrom(
+                              foregroundColor: Colors.black),
+                          child: const Text(
+                            'Log in',
+                            style: TextStyle(
+                                fontFamily: 'PlayFair',
+                                decoration: TextDecoration.underline),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
